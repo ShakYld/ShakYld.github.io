@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: SKKU Computer Science Student <br> <a href="https://drive.google.com/file/d/1eD5OxyEYSFtE14WsixYs9w424v5KB0SC/view"></a>
+subtitle: SKKU Computer Science Student <br> <a href="https://drive.google.com/file/d/1eD5OxyEYSFtE14WsixYs9w424v5KB0SC/view">One-page Resume</a>
 profile:
     align: right
     image: prof_pic.jpg

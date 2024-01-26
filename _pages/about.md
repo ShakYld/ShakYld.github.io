@@ -36,7 +36,7 @@ I am a bachelor student with knowledge of four different languages (Uzbek, Russi
   <li>Was a member of Global Network Scholarship Program</li>
   <li>Was a member of Freshmen Advisor Program</li>
   <li>Was selected as an Excellent Advisor</li>
-  <li>Was aintern in InfoLab, focusing in Threat Intelligence</li>
+  <li>Was an intern in InfoLab, focusing in Threat Intelligence</li>
 </ul> 
 <strong>Relevant coursework</strong>: Web programming Lab, Introduction to AI, Computer Networks, Computer Security, Introduction to Software Engineering, Algorithms, Problem-solving skills, System Program, Data Structures, Computer Architecture, Basis and Practice in C programming, Java Programming Lab, Logic Circuits, Computer Networks, Computer Programming for Engineers, Operating Systems, Introduction to Database, Capstone Design Project <br><br>
 
@@ -52,5 +52,6 @@ I am a bachelor student with knowledge of four different languages (Uzbek, Russi
 <h3 class="font-weight-bold">Contact</h3>
 <ul>
   <li><strong>E-mail</strong>: shakzod42@gmail.com </li>
-  <li><strong>GitHub</strong>: github.com/soloshak</li>
+  <li><strong>GitHub</strong>: <a>www.github.com/soloshak</a></li>
+    <li><strong>LinkedIn</strong>: <a>www.linkedin.com/in/shak-yuld</a></li>
 </ul> <br>

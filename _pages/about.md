@@ -35,8 +35,8 @@ I am a bachelor student with knowledge of four different languages (Uzbek, Russi
 <h4>Master of Computer Science and Engineering,</h4>
 <i>Sungkyunkwan University</i> <br>
 <ul>
-  <li>Average GPA of 4.5</li>
-  <li>Am researcher in SecAI lab</li>
+  <li>GPA: 4.5 / 4.5</li>
+  <li>Researcher at SecAI Lab</li>
   <li>Conducted research on Advanced Persistent Threats (APTs) and their decadal trends</li>
   <li>Currently researching digital forensics of Telegram messenger</li>
 </ul> 

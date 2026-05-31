@@ -77,10 +77,10 @@ a:focus-visible {
 .theme-transition .profile-panel,
 .theme-transition .hero-facts {
   transition:
-    background-color 260ms var(--ease),
-    border-color 260ms var(--ease),
-    color 260ms var(--ease),
-    box-shadow 260ms var(--ease);
+    background-color 520ms var(--ease),
+    border-color 520ms var(--ease),
+    color 520ms var(--ease),
+    box-shadow 520ms var(--ease);
 }
 
 h1,
@@ -246,18 +246,50 @@ li + li {
   margin: 0 auto;
   padding: clamp(64px, 9vw, 104px) 0 58px;
   border-bottom: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
 
 .hero-content {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
+}
+
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-photo {
+  width: clamp(112px, 15vw, 152px);
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  border-radius: 10px;
 }
 
 .hero h1 {
   max-width: 780px;
-  margin: 0 auto;
-  font-size: clamp(2.5rem, 6.6vw, 4.9rem);
+  margin: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  font-size: 4.35rem;
+}
+
+.name-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .eyebrow,
@@ -272,8 +304,6 @@ li + li {
 
 .lead {
   max-width: 760px;
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 22px;
   color: var(--muted);
   font-size: clamp(1.05rem, 2vw, 1.24rem);
@@ -281,8 +311,8 @@ li + li {
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: 10px;
   margin-top: 30px;
 }
@@ -321,8 +351,8 @@ li + li {
 }
 
 .hero-facts {
-  width: min(920px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   text-align: left;
 }
 
@@ -435,7 +465,7 @@ li + li {
 }
 
 .skill-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .achievement-grid {
@@ -521,6 +551,43 @@ li + li {
   font-weight: 720;
 }
 
+.pub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.pub-details {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.pub-details details {
+  border-top: 1px solid var(--line);
+}
+
+.pub-details summary {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 720;
+}
+
+.pub-details summary:hover,
+.pub-details summary:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.pub-details details[open] summary {
+  color: var(--accent);
+}
+
 .placeholder-link {
   color: var(--ink);
   background: transparent;
@@ -592,6 +659,14 @@ li + li {
     padding-top: 74px;
   }
 
+  .hero-identity {
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 3.25rem;
+  }
+
   .hero-facts dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -621,7 +696,7 @@ li + li {
   }
 
   .hero h1 {
-    font-size: clamp(2.15rem, 11.5vw, 2.95rem);
+    font-size: 2.45rem;
   }
 
   .site-nav {
@@ -654,6 +729,18 @@ li + li {
 
   .hero {
     padding-bottom: 46px;
+  }
+
+  .profile-photo {
+    width: 108px;
+  }
+
+  .hero-identity {
+    gap: 8px;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
   }
 
   .hero-facts dl {
@@ -690,21 +777,21 @@ li + li {
   .page-heading,
   .publication,
   .news-item {
-    animation: fade-up 480ms var(--ease) both;
+    animation: fade-up 820ms var(--ease) both;
   }
 
   .publication:nth-child(2),
   .news-item:nth-child(2) {
-    animation-delay: 60ms;
+    animation-delay: 120ms;
   }
 
   .publication:nth-child(3),
   .news-item:nth-child(3) {
-    animation-delay: 120ms;
+    animation-delay: 220ms;
   }
 
   .publication:nth-child(n + 4) {
-    animation-delay: 160ms;
+    animation-delay: 300ms;
   }
 
   .site-nav a,
@@ -715,10 +802,10 @@ li + li {
   .pub-tags span,
   .citation-badge {
     transition:
-      transform 180ms var(--ease),
-      background-color 220ms var(--ease),
-      border-color 220ms var(--ease),
-      color 220ms var(--ease);
+      transform 320ms var(--ease),
+      background-color 420ms var(--ease),
+      border-color 420ms var(--ease),
+      color 420ms var(--ease);
   }
 
   .site-nav a:hover,
@@ -731,13 +818,17 @@ li + li {
 
   .theme-indicator {
     transition:
-      transform 260ms var(--ease),
-      background-color 260ms var(--ease),
-      box-shadow 260ms var(--ease);
+      transform 520ms var(--ease),
+      background-color 520ms var(--ease),
+      box-shadow 520ms var(--ease);
   }
 
   :root[data-theme="light"] .theme-indicator {
     transform: translateX(2px);
+  }
+
+  .pub-details details[open] > p {
+    animation: detail-in 520ms var(--ease) both;
   }
 
   @keyframes fade-up {
@@ -752,6 +843,17 @@ li + li {
     }
   }
 
+  @keyframes detail-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

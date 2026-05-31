@@ -19,7 +19,7 @@
 
     window.setTimeout(function () {
       root.classList.remove("theme-transition");
-    }, 320);
+    }, 620);
   }
 
   function updateButtons() {

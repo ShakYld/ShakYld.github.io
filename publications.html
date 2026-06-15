@@ -1,237 +1,302 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Publications | Shakhzod Yuldoshkhujaev</title>
-    <meta
-      name="description"
-      content="Publications by Shakhzod Yuldoshkhujaev in computer security, digital forensics, and AI for security."
-    >
-    <script>
-      (function () {
-        try {
-          document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
-        } catch (error) {
-          document.documentElement.dataset.theme = "dark";
-        }
-      }());
-    </script>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Shakhzod Yuldoshkhujaev home">
-        <span class="brand-mark">SY</span>
-        <span>Shakhzod Yuldoshkhujaev</span>
-      </a>
-      <div class="header-controls">
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="index.html">Main</a>
-          <a class="active" href="publications.html">Publications</a>
-          <a href="news.html">News & Blogs</a>
-        </nav>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
-          <span class="theme-indicator" aria-hidden="true"></span>
-          <span data-theme-label>Light</span>
-        </button>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0d13;--surface:#11141c;--surface-soft:#171b26;--ink:#e2e6f0;--muted:#8490a4;--quiet:#4c5468;--line:rgba(226,230,240,.09);--line-strong:rgba(226,230,240,.17);--accent:oklch(.70 .17 178);--accent-glow:oklch(.70 .17 178/.20);--accent-2:oklch(.70 .15 292);--hbg:rgba(11,13,19,.90)}
+    [data-theme="light"]{--bg:#f3f4f7;--surface:#eaecf1;--surface-soft:#e0e3ea;--ink:#0b0d13;--muted:#424c60;--quiet:#7a86a0;--line:rgba(11,13,19,.09);--line-strong:rgba(11,13,19,.18);--accent:oklch(.36 .15 178);--accent-glow:oklch(.36 .15 178/.12);--accent-2:oklch(.38 .14 292);--hbg:rgba(243,244,247,.92)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{margin:0;line-height:1.06}
+    p{margin:0}
+    button{font:inherit;cursor:pointer}
+    details summary::-webkit-details-marker{display:none}
+    details summary{list-style:none}
+    details[open]>summary{color:var(--accent)!important}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    ::-webkit-scrollbar{width:4px;background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--quiet)}
+    header{view-transition-name:site-header}
+    main{view-transition-name:page-content}
+    @view-transition{navigation:auto}
+    ::view-transition-group(root),::view-transition-group(site-header),::view-transition-group(page-content){animation-duration:.44s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+    ::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){mix-blend-mode:normal;backface-visibility:hidden}
+    ::view-transition-old(root){animation:vt-root-out .36s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(root){animation:vt-root-in .44s cubic-bezier(.22,1,.36,1) both}
+    ::view-transition-old(site-header){animation:vt-header-out .24s ease both}
+    ::view-transition-new(site-header){animation:vt-header-in .30s ease both}
+    ::view-transition-old(page-content){animation:vt-page-out .34s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(page-content){animation:vt-page-in .46s cubic-bezier(.22,1,.36,1) both}
+    @keyframes vt-root-out{to{opacity:.98}}
+    @keyframes vt-root-in{from{opacity:.98}}
+    @keyframes vt-header-out{to{opacity:.94}}
+    @keyframes vt-header-in{from{opacity:.94}}
+    @keyframes vt-page-out{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(0,-10px,0)}}
+    @keyframes vt-page-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){animation:none!important}}
+    .theme-t,.theme-t *{transition:background-color .44s ease,color .32s ease,border-color .32s ease,box-shadow .32s ease!important}
+
+    @media(max-width:600px){.pub-topline{flex-direction:column!important}}
+  </style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px clamp(16px,5vw,64px);background:var(--hbg);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;color:var(--ink);flex-shrink:0;">
+    <span style="display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;border-radius:2px;flex-shrink:0;letter-spacing:.04em;">SY</span>
+    <span style="font-size:.92rem;font-weight:600;letter-spacing:-.01em;">Shakhzod Yuldoshkhujaev</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+    <nav style="display:flex;align-items:center;gap:2px;">
+      <a href="index.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Main</a>
+      <a href="publications.html" style="padding:6px 12px;color:var(--ink);background:var(--surface-soft);border-radius:2px;font-size:.88rem;font-weight:600;">Publications</a>
+      <a href="news.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">News &amp; Blogs</a>
+    </nav>
+    <button onClick="{{ toggleTheme }}" style="display:flex;align-items:center;gap:7px;padding:6px 12px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.88rem;font-weight:600;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;box-shadow:0 0 6px var(--accent-glow);"></span>
+      {{ themeLabel }}
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section data-screen-label="Page Heading" data-fade style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Research Output</span>
+      <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+    </div>
+    <h1 style="font-size:clamp(2.5rem,5vw,4.2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:20px;">Publications</h1>
+    <p style="color:var(--muted);font-size:1.06rem;max-width:680px;line-height:1.70;">Work spanning APT analysis, messaging-platform forensics, malware analysis, and AI-assisted security research.</p>
+  </section>
+
+  <section data-screen-label="Publications List" style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:32px 0 80px;">
+
+    <article data-fade style="padding:28px 0;border-top:2px solid var(--accent);">
+      <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">ACM CCS</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Oct 2025</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+        </div>
+        <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span>
       </div>
-    </header>
-
-    <main>
-      <section class="page-heading">
-        <p class="eyebrow">Research Output</p>
-        <h1>Publications</h1>
-        <p>
-          Work spanning APT analysis, messaging-platform forensics, malware analysis,
-          and AI-assisted security research.
-        </p>
-      </section>
-
-      <section class="section publication-list" aria-label="Publication list">
-        <article class="publication featured-publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>ACM CCS</span>
-              <span>Oct 2025</span>
-              <span>First author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>A Decade-long Landscape of Advanced Persistent Threats: Longitudinal Analysis and Global Trends</h2>
-          <p>
-            ACM Conference on Computer and Communications Security (CCS), 2025.
-            Distinguished Paper Award.
-          </p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Selected</span>
-            <span>Award</span>
-            <span>Security</span>
-          </div>
-          <div class="pub-actions">
-            <a class="placeholder-link" href="#" aria-label="PDF link placeholder for APT landscape paper">PDF</a>
-            <a class="placeholder-link" href="https://doi.org/10.1145/3719027.3765085">DOI</a>
-          </div>
-          <div class="pub-details">
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This work studies advanced persistent threat activity over a
-                decade, analyzing longitudinal patterns, global trends, and open
-                research questions for threat intelligence.
-              </p>
-            </details>
-          </div>
-        </article>
-        <!--
-        <article class="publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>ESORICS</span>
-              <span>2026</span>
-              <span>Co-author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>What Memory Reveals: Scenario-Driven Artifact Recovery for Telegram Web Forensics</h2>
-          <p>Under review at RAID 2026.</p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Under review</span>
-            <span>Forensics</span>
-          </div>
-        </article>
-        -->
-
-        <article class="publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>JKIISC</span>
-              <span>Dec 2025</span>
-              <span>Co-author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>Online Messenger Forensics Across Platforms: A Systematic Comparative Study</h2>
-          <p>Journal of the Korea Institute of Information Security & Cryptology, 2025.</p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Journal</span>
-            <span>Forensics</span>
-          </div>
-          <div class="pub-actions">
-            <a class="placeholder-link" href="#" aria-label="PDF link placeholder for online messenger forensics paper">PDF</a>
-            <a class="placeholder-link" href="#" aria-label="DOI link placeholder for online messenger forensics paper">DOI</a>
-          </div>
-          <div class="pub-details">
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This study compares forensic acquisition and analysis methods
-                across online messenger platforms, focusing on practical digital
-                artifacts and investigation workflows.
-              </p>
-            </details>
-          </div>
-        </article>
-
-        <article class="publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>CISC-W</span>
-              <span>Nov 2025</span>
-              <span>First author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>Evolving Attack Tactics against Messaging Applications</h2>
-          <p>Information Security and Cryptography Winter (CISC-W), 2025.</p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Conference</span>
-            <span>Messaging security</span>
-          </div>
-          <div class="pub-actions">
-            <a class="placeholder-link" href="#" aria-label="PDF link placeholder for messaging attack tactics paper">PDF</a>
-          </div>
-          <div class="pub-details">
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This work examines how attack tactics against messaging
-                applications evolve and how those tactics affect security and
-                forensic analysis.
-              </p>
-            </details>
-          </div>
-        </article>
-
-        <article class="publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>CISC-S</span>
-              <span>Jun 2025</span>
-              <span>Co-author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>Investigating the Acquisition and Analysis of Digital Artifacts for Messaging Applications</h2>
-          <p>Information Security and Cryptography Summer (CISC-S), 2025.</p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Conference</span>
-            <span>Digital artifacts</span>
-          </div>
-          <div class="pub-actions">
-            <a class="placeholder-link" href="#" aria-label="PDF link placeholder for messaging artifacts paper">PDF</a>
-          </div>
-          <div class="pub-details">
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This paper investigates the acquisition and analysis of digital
-                artifacts from messaging applications, with attention to evidence
-                collection and interpretation.
-              </p>
-            </details>
-          </div>
-        </article>
-
-        <article class="publication">
-          <div class="pub-topline">
-            <div class="pub-meta">
-              <span>CISC-W</span>
-              <span>Nov 2024</span>
-              <span>First author</span>
-            </div>
-            <span class="citation-badge">Citations --</span>
-          </div>
-          <h2>Advanced Persistent Threats: Addressed and Open Research Questions</h2>
-          <p>Information Security and Cryptography Winter (CISC-W), 2024.</p>
-          <div class="pub-tags" aria-label="Publication labels">
-            <span>Conference</span>
-            <span>APT analysis</span>
-          </div>
-          <div class="pub-actions">
-            <a class="placeholder-link" href="#" aria-label="PDF link placeholder for APT research questions paper">PDF</a>
-          </div>
-          <div class="pub-details">
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This work reviews addressed and open research questions in
-                advanced persistent threat analysis, highlighting gaps for future
-                security research.
-              </p>
-            </details>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; 2026 Shakhzod Yuldoshkhujaev</p>
-      <div>
-        <a href="mailto:shakzod42@gmail.com">shakzod42@gmail.com</a>
-        <a href="Shakhzod_CV.pdf">CV PDF</a>
+      <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">A Decade-long Landscape of Advanced Persistent Threats: Longitudinal Analysis and Global Trends</h2>
+      <p style="color:var(--muted);font-size:.94rem;">ACM Conference on Computer and Communications Security (CCS), 2025. Distinguished Paper Award.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--accent);border-radius:2px;color:var(--accent);">Selected</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--accent);border-radius:2px;color:var(--accent);">Award</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Security</span>
       </div>
-    </footer>
-    <script src="assets/theme.js"></script>
-  </body>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <a href="assets/Papers/CCS_25_DecadeAPT.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
+        <a href="https://doi.org/10.1145/3719027.3765085" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">DOI</a>
+        <a href="https://arxiv.org/abs/2509.07457" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">ArXiv</a>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);">
+        <details>
+          <summary style="min-height:38px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--muted);transition:color .2s;">&#9654; Abstract</summary>
+          <p style="color:var(--muted);font-size:.92rem;padding-bottom:16px;line-height:1.68;">An advanced persistent threat (APT) refers to a covert and long-term cyberattack, typically conducted by state-sponsored actors, targeting critical sectors and often remaining undetected for long periods. In response, collective intelligence from around the globe collaborates to identify and trace surreptitious activities, generating substantial documentation on APT campaigns publicly available on the web. While a multitude of prior works predominantly focus on specific aspects of APT cases, such as detection, evaluation, cyber threat intelligence, and dataset creation, limited attention has been devoted to revisiting and investigating these scattered dossiers in a longitudinal manner.
+            <br>The objective of our study lies in filling the gap by offering a macro perspective, connecting key insights and global trends in the past APT attacks. We systematically analyze six reliable sources--- three focused on technical reports and another three on threat actors--- examining 1,509 APT dossiers (i.e., totaling 24,215 pages) spanning from 2014 to 2023 (a decade), and identifying 603 unique APT groups in the world. To efficiently unearth relevant information, we employ a hybrid methodology that combines rule-based information retrieval with large-language-model-based search techniques. Our longitudinal analysis reveals shifts in threat actor activities, global attack vectors, changes in targeted sectors, and the relationships between cyberattacks and significant events, such as elections or wars, which provides insights into historical patterns in APT evolution. Over the past decade, 154 countries have been affected, primarily using malicious documents and spear phishing as the dominant initial infiltration vectors, and a noticeable decline in zero-day exploitation since 2016. Furthermore, we present our findings through interactive visualization tools, such as an APT map or a flow diagram, to facilitate intuitive understanding of the global patterns and trends in APT activities.</p>
+        </details>
+      </div>
+    </article>
+
+    <article data-fade data-delay="60" style="padding:28px 0;border-top:1px solid var(--line);">
+      <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">JKIISC</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Dec 2025</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Co-author</span>
+        </div>
+        <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span>
+      </div>
+      <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Online Messenger Forensics Across Platforms: A Systematic Comparative Study</h2>
+      <p style="color:var(--muted);font-size:.94rem;">Journal of the Korea Institute of Information Security &amp; Cryptology, 2025.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Journal</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Forensics</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <a href="assets/Papers/JKIISC_OnlineMessenger.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
+        <a href="https://doi.org/10.13089/JKIISC.2025.35.6.1349" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">DOI</a>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);">
+        <details>
+          <summary style="min-height:38px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--muted);transition:color .2s;">&#9654; Abstract</summary>
+          <p style="color:var(--muted);font-size:.92rem;padding-bottom:16px;line-height:1.68;">Instant messengers have become essential communication tools, widely used across varying platforms. The digital traces from user activities provide critical evidence for forensic investigations. However, differences in operating systems, storage architectures, and encryption techniques lead to variations in how data is preserved and what information can be collected from each messenger, which requires forensic investigation strategies tailored to each service. This study systematically compares 15 major messengers by examining storage locations, security mechanisms, artifact types, forensic tools, and data collection procedures. It analyzes the location and characteristics of artifacts based on platform environments, evaluating how combinations of tools and collection methods affect the scope of data recovery. By categorizing service-specific approaches and identifying technical constraints, we establish a forensic workflow adaptable to different platform environments. These findings necessitate standardized forensic procedures and the development of automated tools. Ultimately, we aim to design versatile analysis strategies applicable across a wide range of platforms and operational conditions.</p>
+        </details>
+      </div>
+    </article>
+
+    <article data-fade data-delay="120" style="padding:28px 0;border-top:1px solid var(--line);">
+      <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-W</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Nov 2025</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+        </div>
+        <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span>
+      </div>
+      <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Evolving Attack Tactics against Messaging Applications</h2>
+      <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Winter (CISC-W), 2025.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Messaging security</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <a href="assets/Papers/[CISC-W 25] Evolving Attack Tactics.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);">
+        <details>
+          <summary style="min-height:38px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--muted);transition:color .2s;">&#9654; Abstract</summary>
+          <p style="color:var(--muted);font-size:.92rem;padding-bottom:16px;line-height:1.68;">This work examines how attack tactics against messaging applications evolve and how those tactics affect security and forensic analysis.</p>
+        </details>
+      </div>
+    </article>
+
+    <article data-fade data-delay="180" style="padding:28px 0;border-top:1px solid var(--line);">
+      <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-S</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Jun 2025</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Co-author</span>
+        </div>
+        <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span>
+      </div>
+      <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Investigating the Acquisition and Analysis of Digital Artifacts for Messaging Applications</h2>
+      <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Summer (CISC-S), 2025.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Digital artifacts</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <a href="assets/Papers/[CISC-S 25] Investigating the Acquisition.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);">
+        <details>
+          <summary style="min-height:38px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--muted);transition:color .2s;">&#9654; Abstract</summary>
+          <p style="color:var(--muted);font-size:.92rem;padding-bottom:16px;line-height:1.68;">This paper investigates the acquisition and analysis of digital artifacts from messaging applications, with attention to evidence collection and interpretation.</p>
+        </details>
+      </div>
+    </article>
+
+    <article data-fade data-delay="240" style="padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-W</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Nov 2024</span>
+          <span style="color:var(--quiet);">&middot;</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+        </div>
+        <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span>
+      </div>
+      <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Advanced Persistent Threats: Addressed and Open Research Questions</h2>
+      <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Winter (CISC-W), 2024.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">APT analysis</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <a href="assets/Papers/[CISC-W 24] APT Addressed and Open Research Questions.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);">
+        <details>
+          <summary style="min-height:38px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--muted);transition:color .2s;">&#9654; Abstract</summary>
+          <p style="color:var(--muted);font-size:.92rem;padding-bottom:16px;line-height:1.68;">This work reviews addressed and open research questions in advanced persistent threat analysis, highlighting gaps for future security research.</p>
+        </details>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer style="display:flex;justify-content:space-between;gap:20px;padding:28px clamp(16px,5vw,64px);border-top:1px solid var(--line);">
+  <p style="color:var(--quiet);font-size:.84rem;font-family:'JetBrains Mono',monospace;">&copy; 2026 Shakhzod Yuldoshkhujaev</p>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-end;">
+    <a href="mailto:shakzod42@gmail.com" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">shakzod42@gmail.com</a>
+    <a href="Shakhzod_CV.pdf" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">CV PDF</a>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = (() => { try { return { theme: localStorage.getItem('theme') || 'dark' }; } catch(e) { return { theme: 'dark' }; } })();
+
+  componentDidMount() {
+    document.documentElement.dataset.theme = this.state.theme;
+    this._initFade();
+  }
+
+  _initFade() {
+    const els = document.querySelectorAll('[data-fade]');
+    if (!els.length) return;
+    const sameOriginReferrer = (() => {
+      try { return document.referrer && new URL(document.referrer).origin === location.origin; }
+      catch (e) { return false; }
+    })();
+    if (sameOriginReferrer) return;
+    requestAnimationFrame(() => {
+      const tr = 'opacity .65s cubic-bezier(.2,.8,.2,1), transform .65s cubic-bezier(.2,.8,.2,1)';
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(14px)';
+        el.style.transition = tr;
+      });
+      if (!window.IntersectionObserver) {
+        els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const d = parseInt(el.dataset.delay || '0');
+          io.unobserve(el);
+          setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, d);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(el => io.observe(el));
+    });
+  }
+
+  toggleTheme() {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+    root.classList.add('theme-t');
+    this.setState({ theme: next });
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    setTimeout(() => root.classList.remove('theme-t'), 520);
+  }
+
+  renderVals() {
+    return {
+      themeLabel: this.state.theme === 'dark' ? 'Light' : 'Dark',
+      toggleTheme: () => this.toggleTheme(),
+    };
+  }
+}
+</script>
+</body>
 </html>

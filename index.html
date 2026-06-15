@@ -1,255 +1,370 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shakhzod Yuldoshkhujaev</title>
-    <meta
-      name="description"
-      content="Personal academic webpage of Shakhzod Yuldoshkhujaev, a computer security researcher at Sungkyunkwan University."
-    >
-    <script>
-      (function () {
-        try {
-          document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
-        } catch (error) {
-          document.documentElement.dataset.theme = "dark";
-        }
-      }());
-    </script>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Shakhzod Yuldoshkhujaev home">
-        <span class="brand-mark">SY</span>
-        <span>Shakhzod Yuldoshkhujaev</span>
-      </a>
-      <div class="header-controls">
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a class="active" href="index.html">Main</a>
-          <a href="publications.html">Publications</a>
-          <a href="news.html">News & Blogs</a>
-        </nav>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
-          <span class="theme-indicator" aria-hidden="true"></span>
-          <span data-theme-label>Light</span>
-        </button>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0d13;--surface:#11141c;--surface-soft:#171b26;--ink:#e2e6f0;--muted:#8490a4;--quiet:#4c5468;--line:rgba(226,230,240,.09);--line-strong:rgba(226,230,240,.17);--accent:oklch(.70 .17 178);--accent-glow:oklch(.70 .17 178/.20);--accent-2:oklch(.70 .15 292);--hbg:rgba(11,13,19,.90)}
+    [data-theme="light"]{--bg:#f3f4f7;--surface:#eaecf1;--surface-soft:#e0e3ea;--ink:#0b0d13;--muted:#424c60;--quiet:#7a86a0;--line:rgba(11,13,19,.09);--line-strong:rgba(11,13,19,.18);--accent:oklch(.36 .15 178);--accent-glow:oklch(.36 .15 178/.12);--accent-2:oklch(.38 .14 292);--hbg:rgba(243,244,247,.92)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{margin:0;line-height:1.06}
+    p{margin:0}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    li+li{margin-top:5px}
+    button{font:inherit;cursor:pointer}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    ::-webkit-scrollbar{width:4px;background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--quiet)}
+    header{view-transition-name:site-header}
+    main{view-transition-name:page-content}
+    @view-transition{navigation:auto}
+    ::view-transition-group(root),::view-transition-group(site-header),::view-transition-group(page-content){animation-duration:.44s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+    ::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){mix-blend-mode:normal;backface-visibility:hidden}
+    ::view-transition-old(root){animation:vt-root-out .36s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(root){animation:vt-root-in .44s cubic-bezier(.22,1,.36,1) both}
+    ::view-transition-old(site-header){animation:vt-header-out .24s ease both}
+    ::view-transition-new(site-header){animation:vt-header-in .30s ease both}
+    ::view-transition-old(page-content){animation:vt-page-out .34s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(page-content){animation:vt-page-in .46s cubic-bezier(.22,1,.36,1) both}
+    @keyframes vt-root-out{to{opacity:.98}}
+    @keyframes vt-root-in{from{opacity:.98}}
+    @keyframes vt-header-out{to{opacity:.94}}
+    @keyframes vt-header-in{from{opacity:.94}}
+    @keyframes vt-page-out{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(0,-10px,0)}}
+    @keyframes vt-page-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){animation:none!important}}
+    .theme-t,.theme-t *{transition:background-color .44s ease,color .32s ease,border-color .32s ease,box-shadow .32s ease!important}
+
+    @media(max-width:960px){
+      [data-r="two-col"],[data-r="intro-grid"]{grid-template-columns:1fr!important}
+      [data-r="hero-facts"]{grid-template-columns:repeat(2,1fr)!important}
+      [data-r="skills-grid"],[data-r="achieve-grid"]{grid-template-columns:repeat(2,1fr)!important}
+      [data-r="hband"]{flex-direction:column!important;align-items:flex-start!important}
+    }
+    @media(max-width:600px){
+      [data-r="hero-id"]{flex-direction:column!important;align-items:flex-start!important}
+      [data-r="hero-facts"]{grid-template-columns:1fr!important}
+      [data-r="hero-facts"]>div{padding:16px 0!important;border-right:none!important;border-bottom:1px solid var(--line)}
+      [data-r="hero-facts"]>div:last-child{border-bottom:none!important}
+      [data-r="skills-grid"],[data-r="achieve-grid"]{grid-template-columns:1fr!important}
+    }
+  </style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px clamp(16px,5vw,64px);background:var(--hbg);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;color:var(--ink);flex-shrink:0;">
+    <span style="display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;border-radius:2px;flex-shrink:0;letter-spacing:.04em;">SY</span>
+    <span style="font-size:.92rem;font-weight:600;letter-spacing:-.01em;">Shakhzod Yuldoshkhujaev</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+    <nav style="display:flex;align-items:center;gap:2px;">
+      <a href="index.html" style="padding:6px 12px;color:var(--ink);background:var(--surface-soft);border-radius:2px;font-size:.88rem;font-weight:600;">Main</a>
+      <a href="publications.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Publications</a>
+      <a href="news.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">News &amp; Blogs</a>
+    </nav>
+    <button onClick="{{ toggleTheme }}" style="display:flex;align-items:center;gap:7px;padding:6px 12px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.88rem;font-weight:600;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;box-shadow:0 0 6px var(--accent-glow);"></span>
+      {{ themeLabel }}
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section data-screen-label="Hero" style="position:relative;overflow:hidden;width:min(1120px,calc(100% - 40px));margin:0 auto;padding:clamp(72px,10vw,108px) 0 64px;border-bottom:1px solid var(--line);">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(var(--line-strong) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;">
+
+      <div data-r="hero-id" style="display:flex;align-items:center;gap:clamp(14px,3vw,36px);margin-bottom:28px;">
+        <figure style="margin:0;flex-shrink:0;width:clamp(88px,12vw,140px);aspect-ratio:3/4;padding:3px;border:1px solid var(--accent);border-radius:2px;background:var(--surface);box-shadow:0 0 32px var(--accent-glow);">
+          <img src="assets/prof_pic.jpg" alt="Portrait of Shakhzod Yuldoshkhujaev." style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:1px;">
+        </figure>
+        <div>
+          <h1 style="font-size:clamp(2.9rem,7vw,6rem);font-weight:700;letter-spacing:-.03em;line-height:1.0;color:var(--ink);">
+            <span style="display:block;">Shakhzod</span>
+            <span style="display:block;">Yuldoshkhujaev</span>
+          </h1>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;color:var(--accent-2);margin-top:14px;letter-spacing:.02em;">M.S. Candidate &middot; SecAI Lab &middot; Sungkyunkwan University</p>
+        </div>
       </div>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-content">
-          <div class="hero-identity">
-            <figure class="profile-photo">
-              <img src="prof_pic.jpg" alt="Portrait of Shakhzod Yuldoshkhujaev.">
-            </figure>
-            <!--<p class="eyebrow">Computer Security &middot; AI for Security &middot; Digital Forensics</p>-->
-            <h1>
-              <span class="name-line">Shakhzod</span>
-              <span class="name-line">Yuldoshkhujaev</span>
-            </h1>
-          </div>
-          <p class="lead">
-            M.S. student in Computer Science and Engineering at Sungkyunkwan University,
-            working on APT analysis, secure AI-assisted research workflows, and forensic
-            analysis of messaging platforms.
-          </p>
-          <div class="hero-actions" aria-label="Contact and profile links">
-            <a href="mailto:shakzod42@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/shak-yuld/">LinkedIn</a>
-            <a href="Shakhzod_CV.pdf">CV PDF</a>
-          </div>
+      <div style="max-width:720px;">
+        <p style="color:var(--muted);font-size:clamp(1rem,1.8vw,1.18rem);line-height:1.70;">M.S. student in Computer Science and Engineering at Sungkyunkwan University, working on APT analysis, secure AI-assisted research workflows, and forensic analysis of messaging platforms.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;">
+          <a href="mailto:shakzod42@gmail.com" style="display:inline-flex;align-items:center;padding:8px 18px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s,box-shadow .2s;" style-hover="border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow);">Email</a>
+          <a href="https://www.linkedin.com/in/shak-yuld/" style="display:inline-flex;align-items:center;padding:8px 18px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s,box-shadow .2s;" style-hover="border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow);">LinkedIn</a>
+          <a href="assets/Shakhzod_CV.pdf" style="display:inline-flex;align-items:center;padding:8px 18px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s,box-shadow .2s;" style-hover="border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow);">CV PDF</a>
         </div>
-        <aside class="hero-facts" aria-label="Profile snapshot">
-          <dl>
-            <div>
-              <dt>Current</dt>
-              <dd>Researcher, SecAI Lab</dd>
-            </div>
-            <div>
-              <dt>Affiliation</dt>
-              <dd>Sungkyunkwan University</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>Suwon, South Korea</dd>
-            </div>
-            <div>
-              <dt>Focus</dt>
-              <dd>APT analysis, AI for security, digital forensics</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
+      </div>
 
-      <section class="section intro-grid">
-        <div>
-          <p class="section-kicker">Current Role</p>
-          <h2>Researcher at SecAI Lab, Sungkyunkwan University</h2>
-          <p>
-            I study practical security problems at the intersection of AI, digital
-            forensics, and threat intelligence. My recent work includes longitudinal
-            analysis of advanced persistent threats, Telegram Web artifact recovery,
-            and LLM-assisted pipelines for analyzing security reports.
-          </p>
+      <div data-r="hero-facts" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:52px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+        <div style="padding:22px 24px 22px 0;border-right:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;margin-bottom:7px;">Current</p>
+          <p style="color:var(--ink);font-weight:600;font-size:.94rem;">Researcher, SecAI Lab</p>
         </div>
-        <aside class="profile-panel" aria-label="Profile details">
-          <dl>
-            <div>
-              <dt>Location</dt>
-              <dd>Suwon, South Korea</dd>
-            </div>
-            <div>
-              <dt>Affiliation</dt>
-              <dd>Sungkyunkwan University</dd>
-            </div>
-            <div>
-              <dt>Advisor</dt>
-              <dd>Prof. Hyungjoon Koo</dd>
-            </div>
-            <div>
-              <dt>Research Areas</dt>
-              <dd>Computer security, AI for security, digital forensics</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section class="section two-column">
-        <div>
-          <p class="section-kicker">Education</p>
-          <h2>Academic Background</h2>
-          <div class="timeline">
-            <article>
-              <div class="timeline-date">Sep 2024 - Aug 2026</div>
-              <h3>M.S. in Computer Science and Engineering</h3>
-              <p>Sungkyunkwan University, Suwon, South Korea</p>
-              <p>Expected August 2026. Advisor: Prof. Hyungjoon Koo, SecAI Lab.</p>
-            </article>
-            <article>
-              <div class="timeline-date">Sep 2020 - Aug 2024</div>
-              <h3>B.S. in Computer Science and Engineering</h3>
-              <p>Sungkyunkwan University, Suwon, South Korea</p>
-              <p>GPA: 3.8 / 4.5.</p>
-            </article>
-          </div>
+        <div style="padding:22px 24px;border-right:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;margin-bottom:7px;">Affiliation</p>
+          <p style="color:var(--ink);font-weight:600;font-size:.94rem;">Sungkyunkwan University</p>
         </div>
-
-        <div>
-          <p class="section-kicker">Experience</p>
-          <h2>Research Work</h2>
-          <div class="timeline">
-            <article>
-              <div class="timeline-date">Feb 2024 - Present</div>
-              <h3>Researcher, SecAI Lab</h3>
-              <p>Sungkyunkwan University</p>
-              <ul>
-                <li>Collected and analyzed APT threat reports using an LLM-based RAG pipeline.</li>
-                <li>Analyzed Telegram Web artifacts and developed a forensic tool using Volatility 3.</li>
-                <li>Investigated AI-based techniques for binary analysis and security applications.</li>
-              </ul>
-            </article>
-            <article>
-              <div class="timeline-date">Apr 2023 - Dec 2023</div>
-              <h3>Research Assistant, InfoLab</h3>
-              <p>Sungkyunkwan University</p>
-              <ul>
-                <li>Performed LLVM-based compiler analysis for metadata extraction.</li>
-                <li>Analyzed C2 malware traffic with Cuckoo Sandbox and Wireshark.</li>
-                <li>Built Snort 3 detection rules and an ML-based C2 malware classifier.</li>
-              </ul>
-            </article>
-          </div>
+        <div style="padding:22px 24px;border-right:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;margin-bottom:7px;">Location</p>
+          <p style="color:var(--ink);font-weight:600;font-size:.94rem;">Suwon, South Korea</p>
         </div>
-      </section>
-
-      <section class="section highlight-band">
-        <div>
-          <p class="section-kicker">Selected Work</p>
-          <h2>A decade-long landscape of advanced persistent threats</h2>
-          <p>
-            First-author ACM CCS 2025 paper and Distinguished Paper Award recipient,
-            studying longitudinal APT trends and global research questions.
-          </p>
+        <div style="padding:22px 0 22px 24px;">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;margin-bottom:7px;">Focus</p>
+          <p style="color:var(--ink);font-weight:600;font-size:.94rem;">APT analysis, AI for security, digital forensics</p>
         </div>
-        <a class="text-link" href="publications.html">View all publications</a>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="section">
-        <p class="section-kicker">Achievements</p>
-        <h2>Awards & Credentials</h2>
-        <div class="achievement-grid">
-          <article>
-            <div class="timeline-date">Oct 2025</div>
-            <h3>Distinguished Paper Award, ACM CCS</h3>
-            <p>Awarded to the top 30 works out of 2,186 submitted papers (~1.4%).</p>
-          </article>
-          <article>
-            <div class="timeline-date">Aug 2023</div>
-            <h3>CTF Competition, Sungkyunkwan University</h3>
-            <p>Ranked among the top 10 teams in a university CTF competition.</p>
-          </article>
-          <article>
-            <div class="timeline-date">Sep 2024</div>
-            <h3>STEM Scholarship Recipient</h3>
-            <p>Awarded for academic excellence in STEM studies.</p>
-          </article>
-          <article>
-            <div class="timeline-date">Mar 2022</div>
-            <h3>Global Network Scholarship</h3>
-            <p>Awarded for academic performance and international student mentoring.</p>
-          </article>
-          <article>
-            <div class="timeline-date">Korean</div>
-            <h3>TOPIK Level 6</h3>
-            <p>Advanced Korean language certification.</p>
-          </article>
-          <article>
-            <div class="timeline-date">English</div>
-            <h3>IELTS 7.5 & OpIC IH</h3>
-            <p>English written and oral proficiency certifications.</p>
-          </article>
-          <article>
-            <div class="timeline-date">Native</div>
-            <h3>Uzbek & Russian</h3>
-            <p>Native proficiency in Uzbek and Russian.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <p class="section-kicker">Skills</p>
-        <h2>Technical Stack</h2>
-        <div class="skill-grid">
-          <div>
-            <h3>Programming</h3>
-            <p>C/C++, Java, Python, Kotlin, Dart, JavaScript</p>
-          </div>
-          <div>
-            <h3>AI/ML</h3>
-            <p>LangChain, RAG, FAISS, OpenAI API, scikit-learn, pandas</p>
-          </div>
-          <div>
-            <h3>Security</h3>
-            <p>Wireshark, YARA, Snort 3, Cuckoo Sandbox, VirusTotal API, LLVM, APT analysis, digital forensics</p>
-          </div>
-          <div>
-            <h3>Technologies</h3>
-            <p>Firebase, Flutter, Node.js, React, PostgreSQL</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; 2026 Shakhzod Yuldoshkhujaev</p>
+  <section data-screen-label="Current Role" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0;border-bottom:1px solid var(--line);">
+    <div data-r="intro-grid" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.9fr);gap:clamp(32px,6vw,64px);align-items:start;">
       <div>
-        <a href="mailto:shakzod42@gmail.com">shakzod42@gmail.com</a>
-        <a href="https://shakyld.github.io/">shakyld.github.io</a>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Current Role</span>
+          <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+        </div>
+        <h2 style="font-size:clamp(1.4rem,2.5vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:16px;">Researcher at SecAI Lab, Sungkyunkwan University</h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.72;">I study practical security problems at the intersection of AI, digital forensics, and threat intelligence. My recent work includes longitudinal analysis of advanced persistent threats, Telegram Web artifact recovery, and LLM-assisted pipelines for analyzing security reports.</p>
       </div>
-    </footer>
-    <script src="assets/theme.js"></script>
-  </body>
+      <aside style="border:1px solid var(--line-strong);border-radius:2px;padding:24px;background:var(--surface);">
+        <dl style="display:grid;gap:18px;margin:0;">
+          <div style="display:grid;gap:4px;">
+            <dt style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;">Location</dt>
+            <dd style="margin:0;color:var(--ink);font-weight:600;font-size:.94rem;">Suwon, South Korea</dd>
+          </div>
+          <div style="display:grid;gap:4px;">
+            <dt style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;">Affiliation</dt>
+            <dd style="margin:0;color:var(--ink);font-weight:600;font-size:.94rem;">Sungkyunkwan University</dd>
+          </div>
+          <div style="display:grid;gap:4px;">
+            <dt style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;">Advisor</dt>
+            <dd style="margin:0;color:var(--ink);font-weight:600;font-size:.94rem;">Prof. Hyungjoon Koo</dd>
+          </div>
+          <div style="display:grid;gap:4px;">
+            <dt style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--quiet);text-transform:uppercase;letter-spacing:.10em;">Research Areas</dt>
+            <dd style="margin:0;color:var(--ink);font-weight:600;font-size:.94rem;">Computer security, AI for security, digital forensics</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section data-screen-label="Education and Experience" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0;border-bottom:1px solid var(--line);">
+    <div data-r="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Education</span>
+          <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+        </div>
+        <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;">Academic Background</h2>
+        <article style="padding:20px 0;border-top:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.73rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Sep 2024 – Aug 2026</p>
+          <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">M.S. in Computer Science and Engineering</h3>
+          <p style="color:var(--muted);font-size:.92rem;">Sungkyunkwan University, Suwon, South Korea</p>
+          <p style="color:var(--muted);font-size:.90rem;margin-top:4px;">Expected Aug 2026. Advisor: Prof. Hyungjoon Koo, SecAI Lab.</p>
+        </article>
+        <article style="padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.73rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Sep 2020 – Aug 2024</p>
+          <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">B.S. in Computer Science and Engineering</h3>
+          <p style="color:var(--muted);font-size:.92rem;">Sungkyunkwan University, Suwon, South Korea</p>
+          <p style="color:var(--muted);font-size:.90rem;margin-top:4px;">GPA: 3.8 / 4.5</p>
+        </article>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Experience</span>
+          <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+        </div>
+        <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;">Research Work</h2>
+        <article style="padding:20px 0;border-top:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.73rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Feb 2024 – Present</p>
+          <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">Researcher, SecAI Lab</h3>
+          <p style="color:var(--muted);font-size:.92rem;">Sungkyunkwan University</p>
+          <ul>
+            <li>Collected and analyzed APT threat reports using an LLM-based RAG pipeline.</li>
+            <li>Analyzed Telegram Web artifacts and developed a forensic tool using Volatility 3.</li>
+            <li>Investigated AI-based techniques for binary analysis and security applications.</li>
+          </ul>
+        </article>
+        <article style="padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.73rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Apr 2023 – Dec 2023</p>
+          <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">Research Assistant, InfoLab</h3>
+          <p style="color:var(--muted);font-size:.92rem;">Sungkyunkwan University</p>
+          <ul>
+            <li>Performed LLVM-based compiler analysis for metadata extraction.</li>
+            <li>Analyzed C2 malware traffic with Cuckoo Sandbox and Wireshark.</li>
+            <li>Built Snort 3 detection rules and an ML-based C2 malware classifier.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-r="hband" data-screen-label="Selected Work" data-fade style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px max(20px,calc((100vw - 1120px) / 2));background:var(--surface);border-top:1px solid var(--accent);border-bottom:1px solid var(--line);">
+    <div style="max-width:800px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Selected Work</span>
+        <div style="width:72px;height:1px;background:var(--line-strong);flex-shrink:0;"></div>
+      </div>
+      <h2 style="font-size:clamp(1.45rem,2.5vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:12px;">A decade-long landscape of advanced persistent threats</h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.65;">First-author ACM CCS 2025 paper and Distinguished Paper Award recipient, studying longitudinal APT trends and global research questions.</p>
+    </div>
+    <a href="publications.html" style="display:inline-flex;align-items:center;white-space:nowrap;padding:9px 18px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace;flex-shrink:0;transition:border-color .2s,color .2s,box-shadow .2s;" style-hover="border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow);">View all publications</a>
+  </section>
+
+  <section data-screen-label="Awards" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0;border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Awards &amp; Credentials</span>
+      <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+    </div>
+    <h2 style="font-size:clamp(1.45rem,2.5vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;">Recognition &amp; Certifications</h2>
+    <div data-r="achieve-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;">
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Oct 2025</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">Distinguished Paper Award, ACM CCS</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Top 30 of 2,186 submitted papers (~1.4%).</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Aug 2023</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">CTF Competition, SKKU</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Ranked among the top 10 teams.</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Sep 2024</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">STEM Scholarship</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Awarded for academic excellence in STEM.</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Mar 2022</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">Global Network Scholarship</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Academic performance and international mentoring.</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Korean</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">TOPIK Level 6</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Advanced Korean language certification.</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">English</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">IELTS 7.5 &amp; OpIC IH</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Written and oral proficiency certifications.</p>
+      </article>
+      <article style="padding:20px 0;border-top:1px solid var(--line);">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">Native</p>
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink);">Uzbek &amp; Russian</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.55;">Native proficiency in both languages.</p>
+      </article>
+    </div>
+  </section>
+
+  <section data-screen-label="Skills" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Technical Stack</span>
+      <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+    </div>
+    <h2 style="font-size:clamp(1.45rem,2.5vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;">Skills &amp; Tools</h2>
+    <div data-r="skills-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;">
+      <div style="padding:20px 0;border-top:1px solid var(--line);">
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Programming</h3>
+        <p style="color:var(--muted);font-size:.90rem;line-height:1.6;">C/C++, Java, Python, Kotlin, Dart, JavaScript</p>
+      </div>
+      <div style="padding:20px 0;border-top:1px solid var(--line);">
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">AI / ML</h3>
+        <p style="color:var(--muted);font-size:.90rem;line-height:1.6;">LangChain, RAG, FAISS, OpenAI API, scikit-learn, pandas</p>
+      </div>
+      <div style="padding:20px 0;border-top:1px solid var(--line);">
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Security</h3>
+        <p style="color:var(--muted);font-size:.90rem;line-height:1.6;">Wireshark, YARA, Snort 3, Cuckoo Sandbox, VirusTotal API, LLVM, APT analysis, digital forensics</p>
+      </div>
+      <div style="padding:20px 0;border-top:1px solid var(--line);">
+        <h3 style="font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Technologies</h3>
+        <p style="color:var(--muted);font-size:.90rem;line-height:1.6;">Firebase, Flutter, Node.js, React, PostgreSQL</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer style="display:flex;justify-content:space-between;gap:20px;padding:28px clamp(16px,5vw,64px);border-top:1px solid var(--line);">
+  <p style="color:var(--quiet);font-size:.84rem;font-family:'JetBrains Mono',monospace;">&copy; 2026 Shakhzod Yuldoshkhujaev</p>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-end;">
+    <a href="mailto:shakzod42@gmail.com" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">shakzod42@gmail.com</a>
+    <a href="https://shakyld.github.io/" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">shakyld.github.io</a>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = (() => { try { return { theme: localStorage.getItem('theme') || 'dark' }; } catch(e) { return { theme: 'dark' }; } })();
+
+  componentDidMount() {
+    document.documentElement.dataset.theme = this.state.theme;
+    this._initFade();
+  }
+
+  _initFade() {
+    const els = document.querySelectorAll('[data-fade]');
+    if (!els.length) return;
+    const sameOriginReferrer = (() => {
+      try { return document.referrer && new URL(document.referrer).origin === location.origin; }
+      catch (e) { return false; }
+    })();
+    if (sameOriginReferrer) return;
+    requestAnimationFrame(() => {
+      const tr = 'opacity .65s cubic-bezier(.2,.8,.2,1), transform .65s cubic-bezier(.2,.8,.2,1)';
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(14px)';
+        el.style.transition = tr;
+      });
+      if (!window.IntersectionObserver) {
+        els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const d = parseInt(el.dataset.delay || '0');
+          io.unobserve(el);
+          setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, d);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(el => io.observe(el));
+    });
+  }
+
+  toggleTheme() {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+    root.classList.add('theme-t');
+    this.setState({ theme: next });
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    setTimeout(() => root.classList.remove('theme-t'), 520);
+  }
+
+  renderVals() {
+    return {
+      themeLabel: this.state.theme === 'dark' ? 'Light' : 'Dark',
+      toggleTheme: () => this.toggleTheme(),
+    };
+  }
+}
+</script>
+</body>
 </html>

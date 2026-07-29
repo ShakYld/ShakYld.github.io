@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000a0d;--surface:#00181e;--surface-soft:#002b36;--ink:#cfd8d8;--muted:#93a1a1;--quiet:#839496;--line:rgba(147,161,161,.12);--line-strong:rgba(147,161,161,.22);--accent:#2aa198;--accent-glow:rgba(42,161,152,.20);--accent-2:#268bd2;--hbg:rgba(0,10,13,.90);--good:#859900}
+    [data-theme="light"]{--bg:#fdf6e3;--surface:#eee8d5;--surface-soft:#e4dcc3;--ink:#073642;--muted:#586e75;--quiet:#657b83;--line:rgba(88,110,117,.12);--line-strong:rgba(88,110,117,.22);--accent:#1b6963;--accent-glow:rgba(27,105,99,.12);--accent-2:#268bd2;--hbg:rgba(253,246,227,.92);--good:#859900}
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{margin:0;line-height:1.06}
+    p{margin:0}
+    button{font:inherit;cursor:pointer}
+    input{font:inherit}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    ::-webkit-scrollbar{width:4px;background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--quiet)}
+    header{view-transition-name:site-header}
+    main{view-transition-name:page-content}
+    @view-transition{navigation:auto}
+    ::view-transition-group(root),::view-transition-group(site-header),::view-transition-group(page-content){animation-duration:.44s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+    ::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){mix-blend-mode:normal;backface-visibility:hidden}
+    ::view-transition-old(root){animation:vt-root-out .36s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(root){animation:vt-root-in .44s cubic-bezier(.22,1,.36,1) both}
+    ::view-transition-old(site-header){animation:vt-header-out .24s ease both}
+    ::view-transition-new(site-header){animation:vt-header-in .30s ease both}
+    ::view-transition-old(page-content){animation:vt-page-out .34s cubic-bezier(.4,0,.2,1) both}
+    ::view-transition-new(page-content){animation:vt-page-in .46s cubic-bezier(.22,1,.36,1) both}
+    @keyframes vt-root-out{to{opacity:.98}}
+    @keyframes vt-root-in{from{opacity:.98}}
+    @keyframes vt-header-out{to{opacity:.94}}
+    @keyframes vt-header-in{from{opacity:.94}}
+    @keyframes vt-page-out{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(0,-10px,0)}}
+    @keyframes vt-page-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}::view-transition-old(root),::view-transition-new(root),::view-transition-old(site-header),::view-transition-new(site-header),::view-transition-old(page-content),::view-transition-new(page-content){animation:none!important}}
+    .theme-t,.theme-t *{transition:background-color .44s ease,color .32s ease,border-color .32s ease,box-shadow .32s ease!important}
+
+    .ctf-card{padding:24px 0;border-top:1px solid var(--line)}
+    .ctf-card:last-child{border-bottom:1px solid var(--line)}
+    .ctf-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .ctf-input{flex:1;min-width:200px;padding:9px 14px;background:var(--surface);border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:.86rem}
+    .ctf-input:focus{outline:none;border-color:var(--accent)}
+    .ctf-submit{padding:9px 18px;border:1px solid var(--line-strong);border-radius:2px;background:transparent;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s}
+    .ctf-submit:hover{border-color:var(--accent);color:var(--accent)}
+    .ctf-status{font-family:'JetBrains Mono',monospace;font-size:.78rem;margin-top:10px;min-height:1.1em}
+    .ctf-status.ok{color:var(--good)}
+    .ctf-status.bad{color:#e26a6a}
+    .ctf-card.solved{opacity:.55}
+    .ctf-card.solved .ctf-input,.ctf-card.solved .ctf-submit{pointer-events:none}
+    .ctf-badge{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);border:1px solid var(--line-strong);border-radius:2px;padding:3px 9px;white-space:nowrap}
+    .ctf-progress-track{height:4px;background:var(--surface-soft);border-radius:2px;overflow:hidden;margin-top:14px}
+    .ctf-progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+    .ctf-code{display:block;padding:12px 14px;background:var(--surface);border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.82rem;word-break:break-all;margin-top:12px}
+
+    #celebration{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+    #celebration.show{display:flex}
+    .celebration-panel{position:relative;z-index:2;max-width:480px;width:calc(100% - 40px);text-align:center;padding:40px 32px;background:var(--surface);border:1px solid var(--accent);border-radius:4px;box-shadow:0 0 60px var(--accent-glow)}
+    .celebration-emoji{font-size:3rem;margin-bottom:12px}
+    .celebration-panel h2{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+    .celebration-panel p{color:var(--muted);font-size:.94rem;line-height:1.6}
+    .celebration-close{margin-top:22px;display:inline-flex;padding:8px 18px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.86rem;font-weight:600;font-family:'JetBrains Mono',monospace}
+    .celebration-close:hover{border-color:var(--accent);color:var(--accent)}
+    .confetti-piece{position:fixed;top:-20px;z-index:49;border-radius:1px;pointer-events:none;animation:confetti-fall linear forwards}
+    @keyframes confetti-fall{to{transform:translateY(105vh) rotate(var(--rot));opacity:.9}}
+
+    @media(max-width:600px){.ctf-row{flex-direction:column;align-items:stretch}}
+  </style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px clamp(16px,5vw,64px);background:var(--hbg);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;color:var(--ink);flex-shrink:0;">
+    <span style="display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;border-radius:2px;flex-shrink:0;letter-spacing:.04em;">SY</span>
+    <span style="font-size:.92rem;font-weight:600;letter-spacing:-.01em;">Shakhzod Yuldoshkhujaev</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+    <nav style="display:flex;align-items:center;gap:2px;">
+      <a href="index.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Main</a>
+      <a href="publications.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Publications</a>
+      <a href="news.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">News &amp; Blogs</a>
+      <a href="ctf.html" style="padding:6px 12px;color:var(--ink);background:var(--surface-soft);border-radius:2px;font-size:.88rem;font-weight:600;">CTF</a>
+    </nav>
+    <button onClick="{{ toggleTheme }}" style="display:flex;align-items:center;gap:7px;padding:6px 12px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.88rem;font-weight:600;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;box-shadow:0 0 6px var(--accent-glow);"></span>
+      {{ themeLabel }}
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section data-screen-label="Page Heading" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Something Extra</span>
+      <div style="flex:1;height:1px;background:var(--line-strong);"></div>
+    </div>
+    <h1 style="font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:700;letter-spacing:-.03em;margin-bottom:20px;">Capture the Flags</h1>
+    <p style="color:var(--muted);font-size:1.02rem;max-width:620px;line-height:1.70;">Five flags are hidden around this site — some in the obvious places, some not. No writeups, no hints beyond what's below. Find one, drop it in, watch the counter move.</p>
+    <div class="ctf-progress-track"><div class="ctf-progress-fill" id="progress-fill"></div></div>
+    <p style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--quiet);"><span id="progress-count">0</span> / 5 flags captured</p>
+  </section>
+
+  <section data-screen-label="Challenges" style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:8px 0 80px;">
+
+    <article class="ctf-card" id="card-1" data-fade>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">01 — Recon</h3>
+        <span class="ctf-badge">easy</span>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:8px;">Some things only show up to people who look at what's underneath. View source on the homepage.</p>
+      <div class="ctf-row">
+        <input class="ctf-input" id="input-1" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+        <button class="ctf-submit" id="submit-1">Submit</button>
+      </div>
+      <p class="ctf-status" id="status-1"></p>
+    </article>
+
+    <article class="ctf-card" id="card-2" data-fade data-delay="40">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">02 — Console</h3>
+        <span class="ctf-badge">easy</span>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:8px;">Every good analyst checks the logs first. Open your browser's console on the homepage.</p>
+      <div class="ctf-row">
+        <input class="ctf-input" id="input-2" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+        <button class="ctf-submit" id="submit-2">Submit</button>
+      </div>
+      <p class="ctf-status" id="status-2"></p>
+    </article>
+
+    <article class="ctf-card" id="card-3" data-fade data-delay="80">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">03 — Decode</h3>
+        <span class="ctf-badge">medium</span>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:8px;">No hunting needed for this one — just cryptanalysis. The string below is XOR'd against a repeating key: the name of the lab listed under “Current Role" on the homepage.</p>
+      <code class="ctf-code">35090226322b55111e78203a0d713d0c560d223b2a151770793d18</code>
+      <div class="ctf-row">
+        <input class="ctf-input" id="input-3" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+        <button class="ctf-submit" id="submit-3">Submit</button>
+      </div>
+      <p class="ctf-status" id="status-3"></p>
+    </article>
+
+    <article class="ctf-card" id="card-4" data-fade data-delay="120">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">04 — Traffic</h3>
+        <span class="ctf-badge">medium</span>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:8px;">Not everything that loads is linked in the page. Watch the network tab while the homepage loads — one small file isn't referenced anywhere you can click, only in what it fetches.</p>
+      <div class="ctf-row">
+        <input class="ctf-input" id="input-4" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+        <button class="ctf-submit" id="submit-4">Submit</button>
+      </div>
+      <p class="ctf-status" id="status-4"></p>
+    </article>
+
+    <article class="ctf-card" id="card-5" data-fade data-delay="160">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">05 — Crawlers 🤖</h3>
+        <span class="ctf-badge">hard</span>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem;margin-top:8px;">Search engine crawlers get handed a map of where not to go. That's usually the most interesting place on the map.</p>
+      <div class="ctf-row">
+        <input class="ctf-input" id="input-5" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+        <button class="ctf-submit" id="submit-5">Submit</button>
+      </div>
+      <p class="ctf-status" id="status-5"></p>
+    </article>
+
+  </section>
+</main>
+
+<footer style="display:flex;justify-content:space-between;gap:20px;padding:28px clamp(16px,5vw,64px);border-top:1px solid var(--line);">
+  <p style="color:var(--quiet);font-size:.84rem;font-family:'JetBrains Mono',monospace;">&copy; 2026 Shakhzod Yuldoshkhujaev</p>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-end;">
+    <a href="mailto:shakzod42@gmail.com" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">shakzod42@gmail.com</a>
+    <a href="index.html" style="color:var(--muted);font-size:.84rem;font-weight:600;transition:color .2s;" style-hover="color:var(--accent);">Home</a>
+  </div>
+</footer>
+
+<div id="celebration">
+  <div class="celebration-panel">
+    <div class="celebration-emoji">🎉🎂</div>
+    <h2>All five flags captured.</h2>
+    <p>Not many people make it this far — recon, console digging, traffic sniffing, and a bit of cryptanalysis. Nicely done.</p>
+    <button class="celebration-close" id="celebration-close">Close</button>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = (() => { try { return { theme: localStorage.getItem('theme') || 'light' }; } catch(e) { return { theme: 'light' }; } })();
+
+  componentDidMount() {
+    document.documentElement.dataset.theme = this.state.theme;
+    this._initFade();
+    this._initCtf();
+  }
+
+  _initCtf() {
+    var FLAG_HASHES = {
+      1: 'c4cc30a786d8cf940b01fdad0f5765405831cef1f50a964e94386aff57e6acca',
+      2: '1ed3fe384269c9ba6af0302ced8a074ae94ce0d97bc72e3b851c4215e5f4d88c',
+      3: 'c633e7532d52f98322164bcbbccdb6030c772362a0584b5e4a7e985c0a0db3b3',
+      4: '6b5ee394d25f08f9d0ec729d94bca92a435702efec68e4b69a97a8b7648b4822',
+      5: '0fe9508c80581fb4ac46d9e2aca0f859ebb0eca7288e77198f2322c261f94ab0'
+    };
+    var STORAGE_KEY = 'ctf_solved_v1';
+    var CONFETTI_COLORS = ['#2dd4bf', '#a78bfa', '#fbbf24', '#f472b6', '#60a5fa'];
+
+    function loadSolved() {
+      try {
+        var raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return raw && typeof raw === 'object' ? raw : {};
+      } catch (e) { return {}; }
+    }
+
+    function saveSolved(solved) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(solved)); } catch (e) {}
+    }
+
+    async function sha256Hex(str) {
+      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    }
+
+    function isVerified(solved, i) {
+      return solved[i] === FLAG_HASHES[i];
+    }
+
+    function updateProgress(solved) {
+      var count = 0;
+      for (var k = 1; k <= 5; k++) { if (isVerified(solved, k)) count++; }
+      var countEl = document.getElementById('progress-count');
+      var fillEl = document.getElementById('progress-fill');
+      if (countEl) countEl.textContent = String(count);
+      if (fillEl) fillEl.style.width = (count / 5 * 100) + '%';
+      return count;
+    }
+
+    function markSolved(i) {
+      var card = document.getElementById('card-' + i);
+      var input = document.getElementById('input-' + i);
+      var status = document.getElementById('status-' + i);
+      if (!card || !input || !status) return;
+      card.classList.add('solved');
+      input.disabled = true;
+      input.value = 'captured';
+      status.textContent = 'Correct.';
+      status.className = 'ctf-status ok';
+    }
+
+    function spawnConfetti() {
+      var count = 90;
+      for (var i = 0; i < count; i++) {
+        (function () {
+          var piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          var size = 6 + Math.random() * 6;
+          var startX = Math.random() * 100;
+          var duration = 2.2 + Math.random() * 1.6;
+          var delay = Math.random() * 0.4;
+          var rot = (Math.random() * 720 - 360) + 'deg';
+          piece.style.left = startX + 'vw';
+          piece.style.width = size + 'px';
+          piece.style.height = (size * 0.4) + 'px';
+          piece.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+          piece.style.setProperty('--rot', rot);
+          piece.style.animationDuration = duration + 's';
+          piece.style.animationDelay = delay + 's';
+          document.body.appendChild(piece);
+          setTimeout(function () { piece.remove(); }, (duration + delay) * 1000 + 200);
+        })();
+      }
+    }
+
+    function celebrate() {
+      var overlay = document.getElementById('celebration');
+      if (!overlay) return;
+      overlay.classList.add('show');
+      spawnConfetti();
+      setTimeout(spawnConfetti, 700);
+    }
+
+    async function attempt(i) {
+      var input = document.getElementById('input-' + i);
+      var status = document.getElementById('status-' + i);
+      if (!input || !status || input.disabled) return;
+      var val = (input.value || '').trim();
+      if (!val) return;
+      var hash = await sha256Hex(val);
+      if (hash === FLAG_HASHES[i]) {
+        var solved = loadSolved();
+        solved[i] = hash;
+        saveSolved(solved);
+        markSolved(i);
+        var count = updateProgress(solved);
+        if (count === 5) celebrate();
+      } else {
+        status.textContent = 'Not quite.';
+        status.className = 'ctf-status bad';
+      }
+    }
+
+    // Delegated on document so this keeps working even if the framework
+    // re-renders the tree after this initial mount (no stale node refs).
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.ctf-submit');
+      if (btn && /^submit-\d$/.test(btn.id)) {
+        attempt(btn.id.split('-')[1]);
+        return;
+      }
+      if (e.target && e.target.id === 'celebration-close') {
+        var overlay = document.getElementById('celebration');
+        if (overlay) overlay.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      var el = e.target;
+      if (el && el.classList && el.classList.contains('ctf-input') && /^input-\d$/.test(el.id)) {
+        attempt(el.id.split('-')[1]);
+      }
+    });
+
+    var solved = loadSolved();
+    for (var i = 1; i <= 5; i++) {
+      if (isVerified(solved, i)) markSolved(i);
+    }
+    updateProgress(solved);
+  }
+
+  _initFade() {
+    const els = document.querySelectorAll('[data-fade]');
+    if (!els.length) return;
+    const sameOriginReferrer = (() => {
+      try { return document.referrer && new URL(document.referrer).origin === location.origin; }
+      catch (e) { return false; }
+    })();
+    if (sameOriginReferrer) return;
+    requestAnimationFrame(() => {
+      const tr = 'opacity .65s cubic-bezier(.2,.8,.2,1), transform .65s cubic-bezier(.2,.8,.2,1)';
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(14px)';
+        el.style.transition = tr;
+      });
+      if (!window.IntersectionObserver) {
+        els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const d = parseInt(el.dataset.delay || '0');
+          io.unobserve(el);
+          setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, d);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(el => io.observe(el));
+    });
+  }
+
+  toggleTheme() {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+    root.classList.add('theme-t');
+    this.setState({ theme: next });
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    setTimeout(() => root.classList.remove('theme-t'), 520);
+  }
+
+  renderVals() {
+    return {
+      themeLabel: this.state.theme === 'dark' ? 'Light' : 'Dark',
+      toggleTheme: () => this.toggleTheme(),
+    };
+  }
+}
+</script>
+</body>
+</html>

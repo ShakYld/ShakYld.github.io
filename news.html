@@ -8,13 +8,14 @@
 <body>
 <x-dc>
 <helmet>
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0d13;--surface:#11141c;--surface-soft:#171b26;--ink:#e2e6f0;--muted:#8490a4;--quiet:#4c5468;--line:rgba(226,230,240,.09);--line-strong:rgba(226,230,240,.17);--accent:oklch(.70 .17 178);--accent-glow:oklch(.70 .17 178/.20);--accent-2:oklch(.70 .15 292);--hbg:rgba(11,13,19,.90)}
-    [data-theme="light"]{--bg:#f3f4f7;--surface:#eaecf1;--surface-soft:#e0e3ea;--ink:#0b0d13;--muted:#424c60;--quiet:#7a86a0;--line:rgba(11,13,19,.09);--line-strong:rgba(11,13,19,.18);--accent:oklch(.36 .15 178);--accent-glow:oklch(.36 .15 178/.12);--accent-2:oklch(.38 .14 292);--hbg:rgba(243,244,247,.92)}
+    :root{--bg:#000a0d;--surface:#00181e;--surface-soft:#002b36;--ink:#cfd8d8;--muted:#93a1a1;--quiet:#839496;--line:rgba(147,161,161,.12);--line-strong:rgba(147,161,161,.22);--accent:#2aa198;--accent-glow:rgba(42,161,152,.20);--accent-2:#268bd2;--hbg:rgba(0,10,13,.90)}
+    [data-theme="light"]{--bg:#fdf6e3;--surface:#eee8d5;--surface-soft:#e4dcc3;--ink:#073642;--muted:#586e75;--quiet:#657b83;--line:rgba(88,110,117,.12);--line-strong:rgba(88,110,117,.22);--accent:#1b6963;--accent-glow:rgba(27,105,99,.12);--accent-2:#268bd2;--hbg:rgba(253,246,227,.92)}
     *,*::before,*::after{box-sizing:border-box}
     html{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;scroll-behavior:smooth}
     body{margin:0;min-height:100vh;background:var(--bg)}
@@ -59,6 +60,7 @@
       <a href="index.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Main</a>
       <a href="publications.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Publications</a>
       <a href="news.html" style="padding:6px 12px;color:var(--ink);background:var(--surface-soft);border-radius:2px;font-size:.88rem;font-weight:600;">News &amp; Blogs</a>
+      <a href="ctf.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">CTF</a>
     </nav>
     <button onClick="{{ toggleTheme }}" style="display:flex;align-items:center;gap:7px;padding:6px 12px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.88rem;font-weight:600;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">
       <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;box-shadow:0 0 6px var(--accent-glow);"></span>
@@ -69,7 +71,7 @@
 
 <main>
 
-  <section data-screen-label="Page Heading" data-fade style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
+  <section data-screen-label="Page Heading" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Updates</span>
       <div style="flex:1;height:1px;background:var(--line-strong);"></div>
@@ -78,7 +80,7 @@
     <p style="color:var(--muted);font-size:1.06rem;max-width:680px;line-height:1.70;">Paper writeups, research notes, and news coverage related to my work.</p>
   </section>
 
-  <section data-screen-label="News Content" style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:52px 0 80px;">
+  <section data-screen-label="News Content" style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:52px 0 80px;">
     <div data-r="news-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start;">
 
       <div>
@@ -89,14 +91,14 @@
         <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;">Research Notes</h2>
 
         <article data-fade style="padding:22px 0;border-top:1px solid var(--line);">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">January 2026</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;">January 2026</p>
           <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">A Decade-long Landscape of Advanced Persistent Threats</h3>
           <p style="color:var(--muted);font-size:.92rem;line-height:1.60;">Paper blog published on Internet Society Pulse Blog.</p>
           <a href="https://pulse.internetsociety.org/en/blog/2026/01/a-decade-long-landscape-of-advanced-persistent-threats/" style="display:inline-flex;align-items:center;margin-top:14px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">Read blog</a>
         </article>
 
         <article data-fade data-delay="80" style="padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">November 2025</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;">November 2025</p>
           <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">A Decade-long Analysis of Global Trends in Advanced Persistent Threats</h3>
           <p style="color:var(--muted);font-size:.92rem;line-height:1.60;">Paper summary published on Kudos.</p>
           <a href="https://www.growkudos.com/publications/10.1145%25252F3719027.3765085/reader" style="display:inline-flex;align-items:center;margin-top:14px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">Read blog</a>
@@ -111,21 +113,21 @@
         <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;">Mentions &amp; Interview</h2>
 
         <article data-fade data-delay="40" style="padding:22px 0;border-top:1px solid var(--line);">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">October 2025</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;">October 2025</p>
           <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Distinguished Paper Award at ACM CCS 2025</h3>
           <p style="color:var(--muted);font-size:.92rem;line-height:1.60;">Sungkyunkwan University news covering the SecAI Lab ACM CCS 2025 Distinguished Paper Award.</p>
           <a href="https://security2020.skku.edu/security2020/research.do?mode=view&articleNo=59382" style="display:inline-flex;align-items:center;margin-top:14px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">Read news</a>
         </article>
 
         <article data-fade data-delay="120" style="padding:22px 0;border-top:1px solid var(--line);">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">July 2025</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;">July 2025</p>
           <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Paper Accepted to ACM CCS 2025</h3>
           <p style="color:var(--muted);font-size:.92rem;line-height:1.60;">Sungkyunkwan University news covering the SecAI Lab paper acceptance at ACM CCS 2025.</p>
           <a href="https://swb.skku.edu/security2020/research.do?mode=view&articleNo=57227" style="display:inline-flex;align-items:center;margin-top:14px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">Read news</a>
         </article>
 
         <article data-fade data-delay="200" style="padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);margin-bottom:8px;">January 2024</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;">January 2024</p>
           <h3 style="font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink);">Interview at SKKU Webzine</h3>
           <p style="color:var(--muted);font-size:.92rem;line-height:1.60;">Profile interview published by SKKU Webzine.</p>
           <a href="https://webzine.skku.edu/skkuzine/section/people02.do?articleNo=112778&pager.offset=50&pagerLimit=10" style="display:inline-flex;align-items:center;margin-top:14px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">Read news</a>
@@ -146,7 +148,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = (() => { try { return { theme: localStorage.getItem('theme') || 'dark' }; } catch(e) { return { theme: 'dark' }; } })();
+  state = (() => { try { return { theme: localStorage.getItem('theme') || 'light' }; } catch(e) { return { theme: 'light' }; } })();
 
   componentDidMount() {
     document.documentElement.dataset.theme = this.state.theme;

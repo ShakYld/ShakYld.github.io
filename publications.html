@@ -8,13 +8,14 @@
 <body>
 <x-dc>
 <helmet>
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0d13;--surface:#11141c;--surface-soft:#171b26;--ink:#e2e6f0;--muted:#8490a4;--quiet:#4c5468;--line:rgba(226,230,240,.09);--line-strong:rgba(226,230,240,.17);--accent:oklch(.70 .17 178);--accent-glow:oklch(.70 .17 178/.20);--accent-2:oklch(.70 .15 292);--hbg:rgba(11,13,19,.90)}
-    [data-theme="light"]{--bg:#f3f4f7;--surface:#eaecf1;--surface-soft:#e0e3ea;--ink:#0b0d13;--muted:#424c60;--quiet:#7a86a0;--line:rgba(11,13,19,.09);--line-strong:rgba(11,13,19,.18);--accent:oklch(.36 .15 178);--accent-glow:oklch(.36 .15 178/.12);--accent-2:oklch(.38 .14 292);--hbg:rgba(243,244,247,.92)}
+    :root{--bg:#000a0d;--surface:#00181e;--surface-soft:#002b36;--ink:#cfd8d8;--muted:#93a1a1;--quiet:#839496;--line:rgba(147,161,161,.12);--line-strong:rgba(147,161,161,.22);--accent:#2aa198;--accent-glow:rgba(42,161,152,.20);--accent-2:#268bd2;--hbg:rgba(0,10,13,.90)}
+    [data-theme="light"]{--bg:#fdf6e3;--surface:#eee8d5;--surface-soft:#e4dcc3;--ink:#073642;--muted:#586e75;--quiet:#657b83;--line:rgba(88,110,117,.12);--line-strong:rgba(88,110,117,.22);--accent:#1b6963;--accent-glow:rgba(27,105,99,.12);--accent-2:#268bd2;--hbg:rgba(253,246,227,.92)}
     *,*::before,*::after{box-sizing:border-box}
     html{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;scroll-behavior:smooth}
     body{margin:0;min-height:100vh;background:var(--bg)}
@@ -62,6 +63,7 @@
       <a href="index.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">Main</a>
       <a href="publications.html" style="padding:6px 12px;color:var(--ink);background:var(--surface-soft);border-radius:2px;font-size:.88rem;font-weight:600;">Publications</a>
       <a href="news.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">News &amp; Blogs</a>
+      <a href="ctf.html" style="padding:6px 12px;color:var(--muted);border-radius:2px;font-size:.88rem;font-weight:600;transition:color .2s,background .2s;" style-hover="color:var(--ink);background:var(--surface-soft);">CTF</a>
     </nav>
     <button onClick="{{ toggleTheme }}" style="display:flex;align-items:center;gap:7px;padding:6px 12px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.88rem;font-weight:600;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">
       <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;box-shadow:0 0 6px var(--accent-glow);"></span>
@@ -72,7 +74,7 @@
 
 <main>
 
-  <section data-screen-label="Page Heading" data-fade style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
+  <section data-screen-label="Page Heading" data-fade style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:76px 0 40px;border-bottom:1px solid var(--line);">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:.70rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;">// Research Output</span>
       <div style="flex:1;height:1px;background:var(--line-strong);"></div>
@@ -81,16 +83,16 @@
     <p style="color:var(--muted);font-size:1.06rem;max-width:680px;line-height:1.70;">Work spanning APT analysis, messaging-platform forensics, malware analysis, and AI-assisted security research.</p>
   </section>
 
-  <section data-screen-label="Publications List" style="width:min(980px,calc(100% - 40px));margin:0 auto;padding:32px 0 80px;">
+  <section data-screen-label="Publications List" style="width:min(1120px,calc(100% - 40px));margin:0 auto;padding:32px 0 80px;">
 
     <article data-fade style="padding:28px 0;border-top:2px solid var(--accent);">
       <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
           <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">ACM CCS</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Oct 2025</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Oct 2025</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">First author</span>
         </div>
         <!-- <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span> -->
       </div>
@@ -99,7 +101,7 @@
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--accent);border-radius:2px;color:var(--accent);">Selected</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--accent);border-radius:2px;color:var(--accent);">Award</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Security</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Security</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
         <a href="assets/Papers/[CCS_25] DecadeAPT.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
@@ -120,19 +122,19 @@
     <article data-fade data-delay="60" style="padding:28px 0;border-top:1px solid var(--line);">
       <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">JKIISC</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">JKIISC</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Dec 2025</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Dec 2025</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Co-author</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Co-author</span>
         </div>
         <!-- <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span> -->
       </div>
       <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Online Messenger Forensics Across Platforms: A Systematic Comparative Study</h2>
       <p style="color:var(--muted);font-size:.94rem;">Journal of the Korea Institute of Information Security &amp; Cryptology, 2025.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Journal</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Forensics</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Journal</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Forensics</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
         <a href="assets/Papers/[JKIISC 25] OnlineMessenger.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
@@ -149,19 +151,19 @@
     <article data-fade data-delay="120" style="padding:28px 0;border-top:1px solid var(--line);">
       <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-W</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">CISC-W</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Nov 2025</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Nov 2025</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">First author</span>
         </div>
         <!-- <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span> -->
       </div>
       <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Evolving Attack Tactics against Messaging Applications</h2>
       <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Winter (CISC-W), 2025.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Messaging security</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Messaging security</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
         <a href="assets/Papers/[CISC-W 25] Evolving Attack Tactics.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
@@ -177,19 +179,19 @@
     <article data-fade data-delay="180" style="padding:28px 0;border-top:1px solid var(--line);">
       <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-S</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">CISC-S</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Jun 2025</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Jun 2025</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Co-author</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Co-author</span>
         </div>
         <!-- <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span> -->
       </div>
       <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Investigating the Acquisition and Analysis of Digital Artifacts for Messaging Applications</h2>
       <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Summer (CISC-S), 2025.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Digital artifacts</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Digital artifacts</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
         <a href="assets/Papers/[CISC-S 25] Investigating the Acquisition.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
@@ -213,19 +215,19 @@
     <article data-fade data-delay="240" style="padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
       <div class="pub-topline" style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">CISC-W</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">CISC-W</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">Nov 2024</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">Nov 2024</span>
           <span style="color:var(--quiet);">&middot;</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent-2);">First author</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);">First author</span>
         </div>
         <!-- <span style="flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);white-space:nowrap;">Citations —</span> -->
       </div>
       <h2 style="font-size:clamp(1.15rem,2vw,1.52rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink);">Advanced Persistent Threats: Addressed and Open Research Questions</h2>
       <p style="color:var(--muted);font-size:.94rem;">Information Security and Cryptography Winter (CISC-W), 2024.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">Conference</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent-2);">APT analysis</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">Conference</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--accent);">APT analysis</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
         <a href="assets/Papers/[CISC-W 24] APT Addressed and Open Research Questions.pdf" style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-size:.84rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:border-color .2s,color .2s;" style-hover="border-color:var(--accent);color:var(--accent);">PDF</a>
@@ -251,7 +253,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = (() => { try { return { theme: localStorage.getItem('theme') || 'dark' }; } catch(e) { return { theme: 'dark' }; } })();
+  state = (() => { try { return { theme: localStorage.getItem('theme') || 'light' }; } catch(e) { return { theme: 'light' }; } })();
 
   componentDidMount() {
     document.documentElement.dataset.theme = this.state.theme;
